@@ -85,7 +85,7 @@ jobs:
         uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5.6.1
         with:
           images: |
-            ghcr.io/nginxinc/kic-test-${{ matrix.type }}-server
+            ghcr.io/nginx/kic-test-${{ matrix.type }}-server
           tags: |
             type=edge
             type=ref,event=pr
@@ -115,7 +115,7 @@ jobs:
         continue-on-error: true
         id: scan
         with:
-          image: ghcr.io/nginxinc/kic-test-${{ matrix.type }}-server:${{ steps.meta.outputs.version }}
+          image: ghcr.io/nginx/kic-test-${{ matrix.type }}-server:${{ steps.meta.outputs.version }}
           only-fixed: true
           add-cpes-if-none: true
 
@@ -153,7 +153,7 @@ jobs:
         uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5.6.1
         with:
           images: |
-            ghcr.io/nginxinc/kic-test-grpc-server
+            ghcr.io/nginx/kic-test-grpc-server
           tags: |
             type=edge
             type=ref,event=pr
@@ -182,7 +182,7 @@ jobs:
         continue-on-error: true
         id: scan
         with:
-          image: ghcr.io/nginxinc/kic-test-grpc-server:${{ steps.meta.outputs.version }}
+          image: ghcr.io/nginx/kic-test-grpc-server:${{ steps.meta.outputs.version }}
           only-fixed: true
           add-cpes-if-none: true
 
@@ -220,7 +220,7 @@ jobs:
         uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5.6.1
         with:
           images: |
-            ghcr.io/nginxinc/kic-test-dos-server
+            ghcr.io/nginx/kic-test-dos-server
           tags: |
             type=edge
             type=ref,event=pr
@@ -249,7 +249,7 @@ jobs:
         continue-on-error: true
         id: scan
         with:
-          image: ghcr.io/nginxinc/kic-test-dos-server:${{ steps.meta.outputs.version }}
+          image: ghcr.io/nginx/kic-test-dos-server:${{ steps.meta.outputs.version }}
           only-fixed: true
           add-cpes-if-none: true
 

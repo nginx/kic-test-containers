@@ -7,7 +7,7 @@ import (
 	"net"
 	"os"
 
-	utils "github.com/nginxinc/kic-test-containers"
+	utils "github.com/nginx/kic-test-containers"
 )
 
 var version string
