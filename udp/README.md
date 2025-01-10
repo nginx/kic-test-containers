@@ -18,7 +18,7 @@ overridden.
 - Test the change:
   - Use the minikube registry ```$ eval $(minikube docker-env)```
   - Build the docker image from the root of the project ```docker build -t udp-server .```
-  - Update the [service yaml](https://github.com/nginxinc/kubernetes-ingress/blob/main/tests/data/transport-server-udp-load-balance/standard/service_deployment.yaml)
+  - Update the [service yaml](https://github.com/nginx/kubernetes-ingress/blob/main/tests/data/transport-server-udp-load-balance/standard/service_deployment.yaml)
   to use the local version ```-> imagePullPolicy: Never```
   - Test the changes
 - Publish the upd-server change

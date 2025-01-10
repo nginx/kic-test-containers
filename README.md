@@ -1,6 +1,6 @@
 # KIC Test Containers
 
-This repository contains the Dockerfiles and code for the test containers used in the [Kubernetes Ingress Controller](https://github.com/nginxinc/kubernetes-ingress).
+This repository contains the Dockerfiles and code for the test containers used in the [Kubernetes Ingress Controller](https://github.com/nginx/kubernetes-ingress).
 
 ## Building the containers for local testing
 
@@ -19,5 +19,5 @@ make grpc-server
 
 ## Publishing the containers
 
-The containers are published to the [NGINX GitHub Container Registry](https://github.com/orgs/nginxinc/packages?repo_name=kic-test-containers)
+The containers are published to the [NGINX GitHub Container Registry](https://github.com/orgs/nginx/packages?repo_name=kic-test-containers)
 when a new tag is created in this repository. You can see the packages on the right side of this page.
