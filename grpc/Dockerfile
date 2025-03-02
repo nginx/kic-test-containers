@@ -2,7 +2,7 @@
 FROM golang:1.23 AS builder
 
 # renovate: datasource=github-releases depName=grpc/grpc-go
-ARG GRPC_GO_VERSION=v1.69.2
+ARG GRPC_GO_VERSION=v1.70.0
 
 ADD https://github.com/grpc/grpc-go.git#${GRPC_GO_VERSION} /grpc-go
 
