@@ -1,46 +1,6 @@
-linters-settings:
-  misspell:
-    locale: US
-  revive:
-    ignore-generated-header: true
-    rules:
-      - name: blank-imports
-      - name: constant-logical-expr
-      - name: context-as-argument
-      - name: context-keys-type
-      - name: defer
-      - name: dot-imports
-      - name: duplicated-imports
-      - name: empty-block
-      - name: error-naming
-      - name: error-return
-      - name: error-strings
-      - name: errorf
-      - name: exported
-      - name: import-shadowing
-      - name: increment-decrement
-      - name: indent-error-flow
-      - name: package-comments
-      - name: range
-      - name: range-val-address
-      - name: range-val-in-closure
-      - name: receiver-naming
-      - name: redefines-builtin-id
-      - name: string-of-int
-      - name: superfluous-else
-      - name: time-naming
-      - name: unchecked-type-assertion
-      - name: unexported-return
-      - name: unnecessary-stmt
-      - name: unreachable-code
-      - name: unused-parameter
-      - name: var-declaration
-      - name: var-naming
-  govet:
-    enable-all: true
-  gocyclo:
-    min-complexity: 15
+version: "2"
 linters:
+  default: none
   enable:
     - asasalint
     - asciicheck
@@ -62,11 +22,7 @@ linters:
     - gocritic
     - gocyclo
     - godot
-    - gofmt
-    - gofumpt
-    - goimports
     - gosec
-    - gosimple
     - gosmopolitan
     - govet
     - ineffassign
@@ -86,12 +42,9 @@ linters:
     - reassign
     - revive
     - staticcheck
-    - stylecheck
     - tagalign
-    - tenv
     - thelper
     - tparallel
-    - typecheck
     - unconvert
     - unparam
     - unused
@@ -99,9 +52,69 @@ linters:
     - wastedassign
     - whitespace
     - wrapcheck
-  disable-all: true
+  settings:
+    gocyclo:
+      min-complexity: 15
+    govet:
+      enable-all: true
+    misspell:
+      locale: US
+    revive:
+      rules:
+        - name: blank-imports
+        - name: constant-logical-expr
+        - name: context-as-argument
+        - name: context-keys-type
+        - name: defer
+        - name: dot-imports
+        - name: duplicated-imports
+        - name: empty-block
+        - name: error-naming
+        - name: error-return
+        - name: error-strings
+        - name: errorf
+        - name: exported
+        - name: import-shadowing
+        - name: increment-decrement
+        - name: indent-error-flow
+        - name: package-comments
+        - name: range
+        - name: range-val-address
+        - name: range-val-in-closure
+        - name: receiver-naming
+        - name: redefines-builtin-id
+        - name: string-of-int
+        - name: superfluous-else
+        - name: time-naming
+        - name: unchecked-type-assertion
+        - name: unexported-return
+        - name: unnecessary-stmt
+        - name: unreachable-code
+        - name: unused-parameter
+        - name: var-declaration
+        - name: var-naming
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
 issues:
   max-issues-per-linter: 0
   max-same-issues: 0
-run:
-  timeout: 5m
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
