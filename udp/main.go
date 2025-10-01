@@ -1,19 +1,20 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 	"net"
 	"os"
 
-	utils "github.com/nginx/kic-test-containers"
+	info "github.com/nginx/kic-test-containers"
 )
 
 var version string
 
 func main() {
-	commitHash, commitTime, dirtyBuild := utils.GetBuildInfo()
+	commitHash, commitTime, dirtyBuild := info.GetBuildInfo()
 	log.Printf("version: %v, commit: %v, date: %v, dirty: %v\n", version, commitHash, commitTime, dirtyBuild)
 
 	ip := os.Getenv("POD_IP")
@@ -23,7 +24,7 @@ func main() {
 	}
 	port := flag.String("port", "3334", "The port the server listens to")
 	flag.Parse()
-	listener, err := net.ListenPacket("udp", fmt.Sprintf(":%v", *port))
+	listener, err := (&net.ListenConfig{}).ListenPacket(context.Background(), "udp", fmt.Sprintf(":%v", *port))
 	if err != nil {
 		log.Panicln(err)
 	}
