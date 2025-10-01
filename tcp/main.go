@@ -1,24 +1,25 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 	"net"
 
-	utils "github.com/nginx/kic-test-containers"
+	info "github.com/nginx/kic-test-containers"
 )
 
 var version string
 
 func main() {
-	commitHash, commitTime, dirtyBuild := utils.GetBuildInfo()
+	commitHash, commitTime, dirtyBuild := info.GetBuildInfo()
 	log.Printf("version: %v, commit: %v, date: %v, dirty: %v\n", version, commitHash, commitTime, dirtyBuild)
 
 	port := flag.String("port", "3333", "Port")
 	flag.Parse()
 
-	l, err := net.Listen("tcp", fmt.Sprintf(":%v", *port))
+	l, err := (&net.ListenConfig{}).Listen(context.Background(), "tcp", fmt.Sprintf(":%v", *port))
 	if err != nil {
 		log.Panicln(err)
 	}
