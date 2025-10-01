@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.18
-FROM golang:1.24 AS builder
+FROM golang:1.25 AS builder
 
 # renovate: datasource=github-releases depName=grpc/grpc-go
 ARG GRPC_GO_VERSION=v1.75.1
