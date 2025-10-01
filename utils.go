@@ -12,7 +12,7 @@ func GetBuildInfo() (commitHash string, commitTime string, dirtyBuild string) {
 
 	info, ok := debug.ReadBuildInfo()
 	if !ok {
-		return
+		return commitHash, commitTime, dirtyBuild
 	}
 	for _, kv := range info.Settings {
 		switch kv.Key {
