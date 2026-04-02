@@ -111,7 +111,7 @@ jobs:
           no-cache: ${{ github.event_name != 'pull_request' }}
 
       - name: Run Grype vulnerability scanner
-        uses: anchore/scan-action@3c9a191a0fbab285ca6b8530b5de5a642cba332f # v7.2.2
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7.4.0
         continue-on-error: true
         id: scan
         with:
@@ -178,7 +178,7 @@ jobs:
           no-cache: ${{ github.event_name != 'pull_request' }}
 
       - name: Run Grype vulnerability scanner
-        uses: anchore/scan-action@3c9a191a0fbab285ca6b8530b5de5a642cba332f # v7.2.2
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7.4.0
         continue-on-error: true
         id: scan
         with:
@@ -245,7 +245,7 @@ jobs:
           no-cache: ${{ github.event_name != 'pull_request' }}
 
       - name: Run Grype vulnerability scanner
-        uses: anchore/scan-action@3c9a191a0fbab285ca6b8530b5de5a642cba332f # v7.2.2
+        uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7.4.0
         continue-on-error: true
         id: scan
         with:
