@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.26
-FROM golang:1.26-alpine AS builder
+FROM golang:1.27-alpine AS builder
 
 WORKDIR /go/src/github.com/nginx/kic-test-containers/
 COPY udp/main.go ./udp/
